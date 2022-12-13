@@ -27,6 +27,7 @@
 .navMenu a:hover{
     margin-right: 10px;
 }
+
 @media screen and (max-width: 460px) {
     .header{
         padding-left: 1.2rem;

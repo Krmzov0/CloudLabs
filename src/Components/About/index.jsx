@@ -30,7 +30,7 @@ function About() {
             <div className='container mx-auto relative top-44 flex flex-col justify-start items-betweeen aboutHero '>
 
                 <div className=''>
-                    <h1 className='text-9xl font-light text-[#b5d43b] kayak-light tracking-wide leading-[8rem]'>GET TO KNOW <br />  US BETTER</h1>
+                    <h1 className='text-9xl font-light text-[#b5d43b] kayak-light tracking-wide leading-[8rem]'>Get to know <br />  us better</h1>
                 </div>
 
                 {/* <div className='mt-4 flex flex-col justify-center items-center'>
