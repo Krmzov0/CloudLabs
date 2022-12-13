@@ -1,0 +1,45 @@
+/* .MENU{
+    background-image: url('../../Images/bgWhiteTexture.png');
+    image-rendering: -webkit-optimize-contrast;
+} */
+
+.navMenu a{
+    position: relative;
+    width: max-content;
+    transition: ease 0.15s;
+}
+
+.navMenu a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    width: 0;
+    height: 2px;
+    background: #b5d43b;
+    transition: .3s ease;
+}
+
+.navMenu a:hover::after{
+    width: 100%;
+    left: 0;
+}
+.navMenu a:hover{
+    margin-right: 10px;
+}
+@media screen and (max-width: 460px) {
+    .header{
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+        margin-top: 2rem;
+    }
+    .logo{
+        width: 60px;
+    }
+    .h-left{
+        width: max-content;
+    }
+    .letsTalk{
+        display: none;
+    }
+}
