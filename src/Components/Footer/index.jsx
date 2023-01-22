@@ -7,7 +7,7 @@ import { ArrowElbowDownRight, FacebookLogo, InstagramLogo, TwitterLogo } from 'p
 function Footer() {
     return (
         <>
-            <div className='grid footer container mx-auto relative top-[65rem] pt-12 pb-4 border-t border-[#f7f7f797]'>
+            <div className='grid footer container mx-auto relative top-[65rem] pt-12 pb-4 border-t border-[#f7f7f797] '>
 
                 <div className='flex justify-between footerContainer'>
                     <div className='w-[20%] flex flex-col items-end footerbox'>

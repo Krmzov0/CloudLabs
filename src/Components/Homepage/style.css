@@ -58,15 +58,13 @@
     animation: rotating 5s linear infinite;
 }
 
-@media screen and (max-width: 460px) {
-    .hero {
-        top: 10vh;
-    }
 
+
+@media screen and (max-width: 460px) {
     .hero svg {
-        width: 20px;
-        height: 20px;
-        stroke-width: 1.5px;
+        width: 30px;
+        height: 30px;
+        stroke-width: 1px;
     }
 
     .h1Circle {
@@ -93,15 +91,7 @@
         width: 90%;
     }
 
-    .heroText h2 {
-        font-size: 17px;
-        text-align: left;
-        margin-bottom: 5px;
-        
-    }
-
     .heroText p {
-        font-size: 16px;
         text-align: left;
         justify-self: left;
     }

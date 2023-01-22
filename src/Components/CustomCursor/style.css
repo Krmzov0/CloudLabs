@@ -1,0 +1,15 @@
+.cursor{
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #b5d43b;
+    position: fixed;
+    left: -6px;
+    top: -6px;
+    z-index: 999;
+}
+
+.menu:hover .cursor{
+    width: 26px !important;
+    height: 26px !important;
+}

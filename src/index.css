@@ -3,13 +3,13 @@
 @tailwind utilities;
 @import url('./Fonts/GeneralSans/css/general-sans.css');
 @import url('./Fonts/Chillax/css/chillax.css');
-@import url('https://fonts.cdnfonts.com/css/aquatico');      
+@import url('https://fonts.cdnfonts.com/css/aquatico');
 
 *::selection {
   background: #b5d43b;
 }
 
-html{
+html {
   overflow-x: hidden;
   font-family: kayak-regular;
   background: #1c1c1c;
@@ -21,32 +21,53 @@ html{
   object-fit: cover;
 }
 
-@font-face{
+@font-face {
   font-family: kayak-regular;
   src: url('./Fonts/Kayak/Kayak\ Sans\ Regular.otf');
 }
-@font-face{
+
+@font-face {
   font-family: kayak-bold;
   src: url('./Fonts/Kayak/Kayak\ Sans\ Bold.otf');
 }
-@font-face{
+
+@font-face {
   font-family: kayak-light;
   src: url('./Fonts/Kayak/Kayak\ Sans\ Light.otf');
 }
 
-.kayak-light{
+@font-face {
+  font-family: thunder-black;
+  src: url('./Fonts/Thunder-BlackLC.ttf');
+}
+
+@font-face {
+  font-family: thunder-semibold;
+  src: url('./Fonts/Thunder-SemiBoldLC.ttf');
+}
+
+.thunderBlack {
+  font-family: thunder-black;
+}
+
+.thunderSemibold {
+  font-family: thunder-semibold;
+}
+
+
+.kayak-light {
   font-family: kayak-light;
 }
 
-.kayak-bold{
+.kayak-bold {
   font-family: kayak-bold;
 }
 
-.hBtn{
+.hBtn {
   font-family: 'Chillax-Variable';
 }
 
 
-*{
+* {
   -webkit-tap-highlight-color: transparent;
 }

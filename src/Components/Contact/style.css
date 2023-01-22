@@ -1,0 +1,12 @@
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #f7f7f7b4;
+    opacity: 1; /* Firefox */
+}
+textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #f7f7f7b4;
+    opacity: 1; /* Firefox */
+}
+.inputField:focus-within{
+    border-color: #b5d43b;
+    border-bottom-width: 100%;
+}
