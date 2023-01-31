@@ -6,19 +6,22 @@
 @import url('https://fonts.cdnfonts.com/css/aquatico');
 
 *::selection {
-  background: #b5d43b;
+  background: #CCFF02;
 }
 
+/* *{
+  cursor: none !important;
+} */
+
 html {
-  overflow-x: hidden;
+  overflow-x: hidden  !important;
   font-family: kayak-regular;
-  background: #1c1c1c;
+  background: #171717;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   background-image: url('./Images/bg.png.webp');
   image-rendering: -webkit-optimize-contrast;
-  object-fit: cover;
 }
 
 @font-face {

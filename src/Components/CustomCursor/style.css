@@ -2,11 +2,12 @@
     width: 16px;
     height: 16px;
     border-radius: 100%;
-    background: #b5d43b;
+    background: #CCFF02;
     position: fixed;
     left: -6px;
     top: -6px;
     z-index: 999;
+    transition: 0.12s ease-out;
 }
 
 .menu:hover .cursor{

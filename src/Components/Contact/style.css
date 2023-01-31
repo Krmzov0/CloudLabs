@@ -7,6 +7,10 @@ textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     opacity: 1; /* Firefox */
 }
 .inputField:focus-within{
-    border-color: #b5d43b;
+    border-color: #CCFF02;
     border-bottom-width: 100%;
+}
+#contactPage footer{
+    position: relative;
+    top: 30vh !important;
 }

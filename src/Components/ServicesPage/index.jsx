@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Header from '../Header'
 import Footer from '../Footer'
 import './style.css'
-import { Code, PenNib, ChartLineUp, ArrowRight, ArrowDown } from 'phosphor-react'
+import { ArrowDown } from 'phosphor-react'
 import { TypingText } from './customTexts'
 import { staggerContainer } from '../utils/motion'
 import { useAnimation, motion } from "framer-motion";
@@ -54,21 +54,25 @@ function Services() {
 
   return (
     <>
-
-
-
-      <div className='servicespage'>
+    
         <Header />
 
-        <div className='container mx-auto relative sm:top-4 top-24'>
+        <div className='container mx-auto relative sm:top-4 top-32'>
 
-          <motion.div variants={staggerContainer} initial='hidden' className='flex justify-center' whileInView='show' viewport={{ once: false, amount: 0.25 }}>
+          <motion.div variants={staggerContainer} initial='hidden' className='relative sm:bottom-24 bottom-14 flex flex-col justify-center items-center h-max' whileInView='show' viewport={{ once: false, amount: 0.25 }}>
             <TypingText title='SERVICES' />
+            <p className='relative bottom-6 sm:hidden flex text-xl text-center text-[#f7f7f7d7]'>See more about what our team offers. <br /> And detailed informations about each service.</p>
           </motion.div>
 
-          <div className='container mx-auto w-36 h-36 flex justify-center items-center sm:bottom-56 relative'>
-            <ArrowDown size={76} color="#f7f7f7" weight="thin" />
-          </div>
+          <motion.div transition={{
+            type: "spring",
+            stiffness: 700
+          }}
+            initial={{ scale: 1 }} whileTap={{
+              y: 2.5
+            }}><div className='container mx-auto w-28 sm:w-36 h-28 sm:h-36 flex justify-center items-center sm:bottom-72 hover:w-48 hover:h-48 transition-all ease-out relative p-3 rounded-full border border-[#f7f7f7]'>
+              <ArrowDown size={68} color="#f7f7f7" className='sm:w-full w-12' weight="thin" />
+            </div></motion.div>
         </div>
 
         <div className='container mx-auto relative top-72 sm:top-0' ref={Service1Ref}>
@@ -250,62 +254,12 @@ function Services() {
 
           </div>
 
+          <Footer />
         </div>
-
-
-        {/* <div className='container mx-auto relative top-36 flex justify-between items-start'>
-        <div>
-          <h1 className='text-8xl text-[#f7f7f7]'><span className='text-[#b5d43b]'>Services</span> <br /> our <span className='agency relative'>agency</span> offers</h1>
-          <p className='mt-10 w-[35rem] text-2xl text-[#f7f7f7b5]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem pariatur facere aliquid eos, sed unde sapiente ad reprehenderit distinctio.</p>
-          <button className='mt-7 px-11 h-[60px] rounded-full bg-[#b5d43b] text-2xl'>See more</button>
-        </div>
-
-        <div className='flex flex-col justify-center items-center servicesRotating'>
-          <div className='servicesCircle w-56 h-56 rounded-full bg-none border-2 border-[#f7f7f7] flex justify-center items-center transition-all cursor-pointer'>
-            <Code size={76} className='Sicon' color="#b5d43b" weight="thin" />
-          </div>
-
-          <div className='flex items-center gap-x-8'>
-            <div className='servicesCircle w-56 h-56 rounded-full bg-none border-2 border-[#f7f7f7] flex justify-center items-center transition-all cursor-pointer'>
-              <PenNib size={76} className='Sicon' color="#b5d43b" weight="thin" />
-            </div>
-            <div className='servicesCircle w-56 h-56 rounded-full bg-none border-2 border-[#f7f7f7] flex justify-center items-center transition-all cursor-pointer'>
-              <ChartLineUp size={76} className='Sicon' color="#b5d43b" weight="thin" />
-            </div>
-          </div>
-        </div>
-
-      </div> */}
-
-
-
-
-
-        <Footer />
-      </div>
-    </>
-  )
+      </>
+      )
 }
 
-export default Services
+      export default Services
 
 
-
-
-
-
-
-
-{/* <div className='relative top-56 container mx-auto flex items-start justify-between'>
-          <h1 className='text-8xl text-[#f7f7f7]'><span className='text-[#f7f7f7] flex items-center'>Services <span className='ml-8 w-72 h-20 rounded-full flex justify-center items-center bg-[#b5d43b]'><ArrowRight size={76} color="#222222" weight="thin" /></span></span> our <span className='agency relative text-[#b5d43b]'>agency</span> offers</h1>
-
-          <div className='flex items-center gap-x-6'>
-            <div className='w-32 h-32 rounded-2xl flex justify-center items-center bg-[#f7f7f721] border-4 border-[#b5d43b] hover:w-64 transition-all card cursor-pointer'>
-              <h3 className='absolute opacity-0 servicesCardTitle text-[1.6rem] text-[#f7f7f7] kayak-bold transition-all'>Web Development</h3>
-              <Code size={64} className='servicesIcon transition-all' color="#b5d43b" weight="thin" /></div>
-            <div className='w-32 h-32 rounded-2xl flex justify-center items-center bg-[#f7f7f721] border-4 border-[#b5d43b] hover:w-64 transition-all card cursor-pointer'><PenNib className='servicesIcon transition-all' size={64} color="#b5d43b" weight="thin" />
-              <h3 className='absolute opacity-0 servicesCardTitle text-[1.6rem] text-[#f7f7f7] kayak-bold transition-all'>Graphic Design</h3></div>
-            <div className='w-32 h-32 rounded-2xl flex justify-center items-center bg-[#f7f7f721] border-4 border-[#b5d43b] hover:w-64 transition-all card cursor-pointer'><ChartLineUp size={64} className='servicesIcon transition-all' color="#b5d43b" weight="thin" />
-              <h3 className='absolute opacity-0 servicesCardTitle text-[1.6rem] text-[#f7f7f7] kayak-bold transition-all text-center'>Social Media <br /> Marketing</h3></div>
-          </div>
-        </div> */}
