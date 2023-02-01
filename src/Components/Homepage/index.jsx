@@ -8,6 +8,7 @@ import { Laptop, ChartLineUp, PenNib, ArrowDown } from "phosphor-react";
 import circleText from '../../Images/Circle.png'
 import gradientBg from '../../Images/gradientBG.png'
 import gradientBgMobile from '../../Images/gradientBGMobile.png'
+import transparentGradient from '../../Images/gradientBGbottom.png'
 
 function Homepage() {
 
@@ -26,11 +27,32 @@ function Homepage() {
         }
     }
 
+    const Section1Controls = useAnimation();
+    const [HomepageSection1, section1View] = useInView();
+
+    useEffect(() => {
+        if (section1View) {
+            Section1Controls.start("visible");
+        }
+    }, [Section1Controls, section1View]);
+
+    const HomepageH1 = {
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 40 },
+    };
+
+    const HomepageParagraphAnim = {
+        visible: {
+            opacity: 1, y: 0
+        },
+        hidden: {
+            opacity: 0, y: 50
+        }
+    }
+
     const whatWeDoControls = useAnimation();
 
-
     const [inView2] = useInView();
-
 
 
     useEffect(() => {
@@ -39,12 +61,13 @@ function Homepage() {
         }
     }, [whatWeDoControls, inView2]);
 
+
     return (
         <>
 
-            <div id='homepage' className='h-max'>
+            <div id='homepage' className='h-[400rem] sm:h-max'>
                 <div className='hero container h-screen top-0 mx-auto relative flex flex-col justify-between items-center'>
-                <motion.span  initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className='w-full'><Header /></motion.span>
+                    <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className='w-full'><Header /></motion.span>
 
                     <div className='h1CON flex flex-col w-[87%] justify-center'>
 
@@ -65,7 +88,7 @@ function Homepage() {
                             }}
                                 whileTap={{
                                     y: 2.5
-                                }}><div className='mr-2 sm:mr-6 cursor-pointer w-[14rem] sm:w-96 h-14 sm:h-24 flex mb-2 sm:mb-0 justify-center items-center rounded-full bg-[#CCFF02] hover:w-[16rem] hover:sm:w-[27rem] transition-all relative top-1 ml-4 hover:border-4 sm:hover:border-8 hover:border-[#1c1c1c2c] gap-x-2 sm:gap-x-0 mt-20 sm:mt-0'><h2 className='text-2xl mx-0 sm:mx-3 sm:text-4xl text-[#1c1c1c] kayak-regular'>CLOUD</h2><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-up-right" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.2" stroke="#1c1c1c" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                }}><div className='mr-2 sm:mr-6 cursor-pointer w-[14rem] sm:w-96 h-14 sm:h-24 flex mb-2 sm:mb-0 justify-center items-center rounded-full bg-[#CCFF02] hover:w-[16rem] hover:sm:w-[27rem] transition-all relative top-1 ml-4 hover:border-4 sm:hover:border-8 hover:border-[#1c1c1c2c] gap-x-2 sm:gap-x-0 mt-20 sm:mt-0'><h2 className='text-2xl mx-0 sm:mx-3 sm:text-4xl text-[#1c1c1c] kayak-regular'>CLOUD</h2><svg xmlns="http://www.w3.org/2000/svg" className="arrow icon icon-tabler icon-tabler-arrow-up-right" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.2" stroke="#1c1c1c" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <line x1="17" y1="7" x2="7" y2="17" />
                                     <polyline points="8 7 17 7 17 16" />
@@ -82,30 +105,71 @@ function Homepage() {
                         </div>
                     </div>
 
-                    <div className='relative bottom-3'>
-                        <h4 className='text-xl text-[#f7f7f7ce]'>Creative Digital Agency</h4>
+                    <div className='relative sm:bottom-3 bottom-4'>
+                        <h4 className='text-xl text-[#1c1c1c] sm:text-[#f7f7f7]'>Creative Digital Agency</h4>
+                    </div>
+
+                    <div className=' absolute bottom-[-7rem] z-[-1] sm:hidden '>
+                        <img src={transparentGradient} className='flex sm:hidden w-full h-[20rem] align-middle overflow-hidden' alt="" />
                     </div>
                 </div>
 
-                <div className='w-screen pl-[40px] pr-[40px] sm:px-[160px] pt-[120px] sm:pt-[210px] pb-[240px] bg-[#fff] relative '>
+                <div className='w-screen pl-[20px] pr-[20px] sm:px-[160px] pt-[120px] sm:pt-[210px] pb-[240px] bg-[#fff] relative '>
 
                     <div className='w-max flex mb-12'>
-                        <div className='p-2 flex justify-center items-center border-2 border-[#1c1c1c] rounded-full bg-none'><ArrowDown size={36} color="#1c1c1c" weight="light" /></div>
-                        <div className='p-3 flex justify-center items-center px-6 border-2 border-[#1c1c1c] rounded-full bg-none text-xl kayak-bold text-[#1c1c1c]'>ABOUT</div>
+                        <div className='p-2 flex justify-center items-center border-2 border-[#1c1c1c] rounded-full bg-none w-12 h-12 sm:w-full sm:h-full'><ArrowDown size={36} color="#1c1c1c" weight="light" /></div>
+                        <div className='p-2 px-4 sm:p-3 flex justify-center items-center sm:px-6 border-2 border-[#1c1c1c] rounded-full bg-none text-lg sm:text-xl kayak-bold text-[#1c1c1c]'>ABOUT</div>
                     </div>
 
-                    <motion.span className='sm:flex flex-col text-7xl sm:text-[140px] sm:leading-[142px]' >Design <br /> Brand <br /> Develop <br /> Manage</motion.span>
+                    <div className='flex-col'>
+                        <h1 className='flex' ref={HomepageSection1}>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6 }}>D</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.05 }} >E</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.15 }} >S</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.25 }} >I</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.3 }} >G</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.35 }} >N</motion.span>
+                        </h1>
+
+                        <h1 className='flex'>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.4 }}>B</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.45 }} >R</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.5 }} >A</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.55 }} >N</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.6 }} >D</motion.span>
+                        </h1>
+
+                        <h1 className='flex'>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.65 }}>D</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.7 }} >E</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.75 }} >V</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.85 }} >E</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.95 }} >L</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1 }} >O</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.05 }} >P</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.1 }} >E</motion.span>
+                        </h1>
+
+                        <h1 className='flex'>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.15 }}>M</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.2 }} >A</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.25 }} >N</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.3 }} >A</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.35 }} >G</motion.span>
+                            <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' variants={HomepageH1} initial="hidden" animate={Section1Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.4 }} >E</motion.span>
+                        </h1>
+                    </div>
 
 
                     <div className='flex sm:justify-end justify-start relative top-10 z-30 gap-x-20'>
                         <div className='flex flex-col w-max'>
 
-                            <div className='flex gap-x-20 flex-col sm:flex-row'>
+                            <motion.div variants={HomepageParagraphAnim} initial='hidden' animate={Section1Controls} transition={{ delay: 1.5 }} className='flex gap-x-20 flex-col sm:flex-row'>
                                 <p className='text-[1.3rem] sm:text-[1.5rem] mb-10'>We are Cloud Labs. Digital creators  <br />  with more than 4  years of experience.<br />We focus on developing your <br /> business with services managed by us.</p>
                                 <p className='text-[1.3rem] sm:text-[1.5rem] mb-10'>At our digital agency,<br /> we are dedicated to providing <br /> expert solutions to help your business <br /> succeed  in the digital landscape.</p>
-                            </div>
+                            </motion.div>
 
-                            <button className='px-10  w-max py-3 bg-[#1c1c1c] text-[#f7f7f7] text-xl rounded-full transition-all active:bg-[#292929] active:translate-y-1 hover:bg-[#393939eb]'>More about us</button>
+                            <motion.div variants={HomepageParagraphAnim} initial='hidden' animate={Section1Controls} transition={{ delay: 1.65 }} ><button className='px-10  w-max py-3 bg-[#1c1c1c] text-[#f7f7f7] text-xl rounded-full transition-all active:bg-[#292929] active:translate-y-1 hover:bg-[#393939eb]'>More about us</button></motion.div>
                         </div>
 
                     </div>
@@ -119,12 +183,12 @@ function Homepage() {
                     <img src={gradientBgMobile} className='w-full mt-0 flex sm:hidden gradientimg h-auto align-middle overflow-hidden' alt="" />
                 </div>
 
-                <div className='w-full flex flex-col justify-center pl-[40px] pr-[40px] sm:px-[160px] pt-[120px] sm:pt-[210px] pb-[240px] bg-[#CCFF02] relative top-[-20rem] sm:top-0 z-[1]'>
+                <div className='w-full flex flex-col justify-center pl-[20px] pr-[20px] sm:px-[160px] pt-[120px] sm:pt-[210px] pb-[240px] bg-[#CCFF02] relative top-[-20rem] sm:top-0 z-[1]'>
                     <div className='flex flex-col justify-center'>
 
                         <div className='w-max flex mb-12'>
-                            <div className='p-2 flex justify-center items-center border-2 border-[#1c1c1c] rounded-full bg-none'><ArrowDown size={36} color="#1c1c1c" weight="light" /></div>
-                            <div className='p-3 flex justify-center items-center px-6 border-2 border-[#1c1c1c] rounded-full bg-none text-xl kayak-bold text-[#1c1c1c]'>SERVICES</div>
+                            <div className='p-2 flex justify-center items-center border-2 border-[#1c1c1c] rounded-full bg-none w-12 h-12 sm:w-full sm:h-full'><ArrowDown size={36} color="#1c1c1c" weight="light" /></div>
+                            <div className='p-2 px-4 sm:p-3 flex justify-center items-center sm:px-6 border-2 border-[#1c1c1c] rounded-full bg-none text-lg sm:text-xl kayak-bold text-[#1c1c1c]'>SERVICES</div>
                         </div>
 
                         <h1 className='sm:flex text-6xl uppercase kayak-regular sm:text-[110px] sm:leading-[122px]'>Unleash the potential <br /> of your Business <br /> with our services</h1>
@@ -135,7 +199,7 @@ function Homepage() {
                                 <ChartLineUp size={84} className='w-16 sm:w-full' color="#252525" weight="light" />
                                 <PenNib size={84} className='w-16 sm:w-full' color="#252525" weight="light" />
                             </div>
-                            <div className='flex flex-col mt-6 sm:mt-0'>
+                            <div className='flex flex-col mt-6 sm:mt-0 w-[80%] sm:w-max'>
                                 <p className='text-[1.2rem] sm:text-[1.5rem] mb-10 z-50'>At our digital agency, we provide a full range of services <br /> to help businesses succeed in the digital landscape. <br /> Our services include: Website Design and Development, <br /> Social Media Marketing & Graphic Design.</p>
                                 <button className='px-10 transition-all active:bg-[#292929] active:translate-y-1 hover:bg-[#393939eb] w-max py-3 bg-[#1c1c1c] text-[#f7f7f7] text-xl rounded-full'>More about Services</button>
                             </div>

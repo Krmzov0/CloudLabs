@@ -27,21 +27,3 @@
 .navMenu a:hover{
     margin-right: 10px;
 }
-
-
-@media screen and (max-width: 460px) {
-    .header{
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
-        margin-top: 2rem;
-    }
-    .logo{
-        width: 70px;
-    }
-    .h-left{
-        width: max-content;
-    }
-    .letsTalk{
-        display: none;
-    }
-}

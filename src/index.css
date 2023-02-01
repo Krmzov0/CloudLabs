@@ -24,6 +24,13 @@ html {
   image-rendering: -webkit-optimize-contrast;
 }
 
+@media screen and (max-width: 460px) {
+  html{
+    background-image: none;
+  }
+}
+
+
 @font-face {
   font-family: kayak-regular;
   src: url('./Fonts/Kayak/Kayak\ Sans\ Regular.otf');

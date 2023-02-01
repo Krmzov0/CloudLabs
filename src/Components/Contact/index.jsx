@@ -3,21 +3,24 @@ import Header from '../Header'
 import Footer from '../Footer'
 import './style.css'
 import { PaperPlaneTilt } from 'phosphor-react'
+import { motion } from 'framer-motion'
 
 function Contact() {
     return (
 
         <>
             <div id='contactPage'>
-                <Header />
+
 
                 <div className='w-full relative flex flex-col'>
-                    <div className='container sm:mx-auto relative top-16 mx-6 sm:w-full w-[88%]'>
-                        <h1 className='text-6xl sm:text-8xl kayak-light text-[#f7f7f7] w-max'>Let's <br /> <span className='text-[#CCFF02] flex items-center'>Collaborate <PaperPlaneTilt className='ml-4 relative top-1 w-10 sm:w-full' size={64} color="#f7f7f7" weight="duotone" /></span></h1>
 
-                        <div className='w-full flex flex-col-reverse sm:flex-row justify-between items-start relative top-16'>
+                    <div className='container sm:mx-auto relative top-0 sm:w-full h-screen flex flex-col justify-between  items-center sm:items-start'>
+                        <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className='w-full'><Header /></motion.span>
+                        <h1 className='text-6xl relative sm:top-10 mt-12 sm:mt-0 sm:text-8xl kayak-light text-[#f7f7f7] w-max'>Let's <br /> <span className='text-[#CCFF02] flex items-center'>Collaborate <PaperPlaneTilt className='ml-4 relative top-1 w-10 sm:w-full' size={64} color="#f7f7f7" weight="duotone" /></span></h1>
 
-                            <div className=' mt-14 sm:mt-0'>
+                        <div className='mt-12 sm:w-full w-max sm:mx-0 bottom-3 flex flex-col-reverse sm:flex-row justify-between items-start relative'>
+
+                            <div className='mt-14 sm:mt-0'>
                                 <div>
                                     <p className='text-2xl kayak-light text-[#f7f7f764]'>Phone</p>
                                     <div className='mt-7 flex flex-col gap-y-1'>

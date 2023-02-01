@@ -14,3 +14,11 @@ textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     position: relative;
     top: 30vh !important;
 }
+
+@media screen and (max-width: 460px) {
+    #contactPage footer{
+        position: relative;
+        top: 90vh !important;
+    }
+    
+  }

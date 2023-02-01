@@ -99,8 +99,12 @@
 }
 
 @media screen and (max-width: 460px) {
+
+    #homepage footer{
+        top: -20rem;
+    }
     
-    .hero svg {
+    .arrow {
         width: 30px;
         height: 30px;
         stroke-width: 1px;
