@@ -1,1 +1,21 @@
-    
+#aboutPage footer{
+    top: 50rem;
+}
+.aboutNavigation{
+    cursor: pointer;
+}
+.aboutNavigation::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: #CCFF02;
+    transition: .3s ease;
+    z-index: -1;
+}
+.aboutNavigation:hover::after{
+    width: 100%;
+    left: 0;
+}

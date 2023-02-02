@@ -131,7 +131,7 @@ function Header() {
                                 scale: 1.15
                             }} whileTap={{
                                 y: 2.5
-                            }}> <List className='cursor-pointer' onClick={handleMenuToggle} size={32} color="#f7f7f7" weight="thin" /> </motion.div>
+                            }}> <List className='cursor-pointer' onClick={handleMenuToggle} size={36} color="#f7f7f7" weight="thin" /> </motion.div>
 
                         <motion.div transition={{
                             type: "spring",

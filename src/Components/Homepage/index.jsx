@@ -28,7 +28,12 @@ function Homepage() {
     }
 
     const Section1Controls = useAnimation();
+    const Section2Controls = useAnimation();
+    const cardControls = useAnimation();
+     
     const [HomepageSection1, section1View] = useInView();
+    const [HomepageSection2, section2View] = useInView();
+    const [cardSection, cardInView] = useInView();
 
     useEffect(() => {
         if (section1View) {
@@ -36,9 +41,26 @@ function Homepage() {
         }
     }, [Section1Controls, section1View]);
 
+    useEffect(() => {
+        if (section2View) {
+            Section2Controls.start("visible");
+        }
+    }, [Section2Controls, section2View]);
+
+    useEffect(() => {
+        if (cardInView) {
+            cardControls.start("visible");
+        }
+    }, [cardControls, cardInView]);
+
     const HomepageH1 = {
         visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 40 },
+        hidden: { opacity: 0, y: 50 }
+    };
+
+    const cardAnim = {
+        visible: { opacity: 1 },
+        hidden: { opacity: 0 }
     };
 
     const HomepageParagraphAnim = {
@@ -50,8 +72,8 @@ function Homepage() {
         }
     }
 
-    const whatWeDoControls = useAnimation();
 
+    const whatWeDoControls = useAnimation();
     const [inView2] = useInView();
 
 
@@ -65,7 +87,7 @@ function Homepage() {
     return (
         <>
 
-            <div id='homepage' className='h-[400rem] sm:h-max'>
+            <div id='homepage' className='h-[390rem] sm:h-max'>
                 <div className='hero container h-screen top-0 mx-auto relative flex flex-col justify-between items-center'>
                     <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className='w-full'><Header /></motion.span>
 
@@ -109,9 +131,9 @@ function Homepage() {
                         <h4 className='text-xl text-[#1c1c1c] sm:text-[#f7f7f7]'>Creative Digital Agency</h4>
                     </div>
 
-                    <div className=' absolute bottom-[-7rem] z-[-1] sm:hidden '>
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className='absolute bottom-[-7rem] z-[-1] sm:hidden '><div>
                         <img src={transparentGradient} className='flex sm:hidden w-full h-[20rem] align-middle overflow-hidden' alt="" />
-                    </div>
+                    </div></motion.div>
                 </div>
 
                 <div className='w-screen pl-[20px] pr-[20px] sm:px-[160px] pt-[120px] sm:pt-[210px] pb-[240px] bg-[#fff] relative '>
@@ -169,7 +191,7 @@ function Homepage() {
                                 <p className='text-[1.3rem] sm:text-[1.5rem] mb-10'>At our digital agency,<br /> we are dedicated to providing <br /> expert solutions to help your business <br /> succeed  in the digital landscape.</p>
                             </motion.div>
 
-                            <motion.div variants={HomepageParagraphAnim} initial='hidden' animate={Section1Controls} transition={{ delay: 1.65 }} ><button className='px-10  w-max py-3 bg-[#1c1c1c] text-[#f7f7f7] text-xl rounded-full transition-all active:bg-[#292929] active:translate-y-1 hover:bg-[#393939eb]'>More about us</button></motion.div>
+                            <motion.div variants={HomepageParagraphAnim} initial='hidden' animate={Section1Controls} transition={{ delay: 1.65 }} ><a href="/about"><button className='px-10  w-max py-3 bg-[#1c1c1c] text-[#f7f7f7] text-xl rounded-full transition-all active:bg-[#292929] active:translate-y-1 hover:bg-[#393939eb]'>More about us</button></a></motion.div>
                         </div>
 
                     </div>
@@ -183,7 +205,7 @@ function Homepage() {
                     <img src={gradientBgMobile} className='w-full mt-0 flex sm:hidden gradientimg h-auto align-middle overflow-hidden' alt="" />
                 </div>
 
-                <div className='w-full flex flex-col justify-center pl-[20px] pr-[20px] sm:px-[160px] pt-[120px] sm:pt-[210px] pb-[240px] bg-[#CCFF02] relative top-[-20rem] sm:top-0 z-[1]'>
+                <div className='w-full flex flex-col justify-center pl-[20px] pr-[20px] sm:px-[160px] pt-[120px] sm:pt-[210px] pb-[120px] sm:pb-[210px] bg-[#CCFF02] relative top-[-20rem] sm:top-0 z-[1]'>
                     <div className='flex flex-col justify-center'>
 
                         <div className='w-max flex mb-12'>
@@ -191,7 +213,90 @@ function Homepage() {
                             <div className='p-2 px-4 sm:p-3 flex justify-center items-center sm:px-6 border-2 border-[#1c1c1c] rounded-full bg-none text-lg sm:text-xl kayak-bold text-[#1c1c1c]'>SERVICES</div>
                         </div>
 
-                        <h1 className='sm:flex text-6xl uppercase kayak-regular sm:text-[110px] sm:leading-[122px]'>Unleash the potential <br /> of your Business <br /> with our services</h1>
+                        <div>
+                            <h1 className='flex-col sm:flex-row flex gap-x-8' ref={HomepageSection2}>
+                                <div className='flex'>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6 }}>U</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.05 }} >N</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.15 }} >L</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.25 }} >E</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.3 }} >A</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.35 }} >S</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.4 }} >H</motion.span> <br />
+                                </div>
+                                <div className='flex'>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.45 }} >T</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.5 }} >H</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.55 }} >E</motion.span>
+                                </div>
+
+                                <div className='flex'>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.6 }} >P</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.65 }} >O</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.7 }} >T</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.75 }} >E</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.8 }} >N</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.85 }} >T</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.9 }} >I</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 0.95 }} >A</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1 }} >L</motion.span>
+                                </div>
+                            </h1>
+
+                            <h1 className='flex-col sm:flex-row flex gap-x-8' >
+                                <div className='flex sm:gap-x-8 gap-x-4'>
+                                    <div className='flex'>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.05 }}>O</motion.span>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.1 }} >F</motion.span>
+                                    </div>
+                                    <div className='flex'>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.15 }} >Y</motion.span>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.2 }} >O</motion.span>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.25 }} >U</motion.span>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.3 }} >R</motion.span>
+                                    </div>
+                                </div>
+
+                                <div className='flex'>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.35 }} >B</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.45 }} >U</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.5 }} >S</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.55 }} >I</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.6 }} >N</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.65 }} >E</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.7 }} >S</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.75 }} >S</motion.span>
+                                </div>
+                            </h1>
+
+
+                            <h1 className=' flex gap-x-8 flex-col sm:flex-row' >
+                                <div className='flex sm:gap-x-8 gap-x-4'>
+                                    <div className='flex'>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.8 }}>W</motion.span>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.85 }} >I</motion.span>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.9 }} >T</motion.span>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 1.95 }} >H</motion.span>
+                                    </div>
+                                    <div className='flex'>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2 }} >O</motion.span>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.05 }} >U</motion.span>
+                                        <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.1 }} >R</motion.span>
+                                    </div>
+                                </div>
+
+                                <div className='flex'>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.15 }} >S</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.2 }} >E</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.25 }} >R</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.3 }} >V</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.35 }} >I</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.4 }} >C</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.45 }} >E</motion.span>
+                                    <motion.span className='sm:flex text-6xl kayak-regular sm:text-[110px] sm:leading-[122px]' initial="hidden" variants={HomepageH1} animate={Section2Controls} transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.6, delay: 2.5 }} >S</motion.span>
+                                </div>
+                            </h1>
+                        </div>
 
                         <div className='flex justify-between flex-col sm:flex-row items-start mt-12'>
                             <div className='flex items-center gap-x-6'>
@@ -200,17 +305,17 @@ function Homepage() {
                                 <PenNib size={84} className='w-16 sm:w-full' color="#252525" weight="light" />
                             </div>
                             <div className='flex flex-col mt-6 sm:mt-0 w-[80%] sm:w-max'>
-                                <p className='text-[1.2rem] sm:text-[1.5rem] mb-10 z-50'>At our digital agency, we provide a full range of services <br /> to help businesses succeed in the digital landscape. <br /> Our services include: Website Design and Development, <br /> Social Media Marketing & Graphic Design.</p>
-                                <button className='px-10 transition-all active:bg-[#292929] active:translate-y-1 hover:bg-[#393939eb] w-max py-3 bg-[#1c1c1c] text-[#f7f7f7] text-xl rounded-full'>More about Services</button>
+                                <motion.div variants={HomepageParagraphAnim} initial='hidden' animate={Section2Controls} transition={{ delay: 2.6 }}><p className='text-[1.2rem] sm:text-[1.5rem] mb-10 z-50'>At our digital agency, we provide a full range of services <br /> to help businesses succeed in the digital landscape. <br /> Our services include: Website Design and Development, <br /> Social Media Marketing & Graphic Design.</p></motion.div>
+                                <motion.div variants={HomepageParagraphAnim} initial='hidden' animate={Section2Controls} transition={{ delay: 2.75 }}> <a href="/services"><button className='px-10 transition-all active:bg-[#292929] active:translate-y-1 hover:bg-[#393939eb] w-max py-3 bg-[#1c1c1c] text-[#f7f7f7] text-xl rounded-full'>More about Services</button></a> </motion.div>
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-                <div className='w-full flex flex-col justify-center bg-[#171717] relative top-[-20rem] sm:top-0'>
-                    <div className='flex items-center justify-center sm:flex-row flex-col'>
-                        <div className='serviceCard sm:w-[33.33%] w-full h-screen sm:p-8 p-6 flex flex-col justify-between border-r border-[#f7f7f7b0] border-b'>
+                <div className='w-full flex flex-col justify-center bg-[#171717] relative top-[-20rem] sm:top-0' ref={cardSection}>
+                    <div className='flex items-center justify-center sm:flex-row flex-col' >
+                        <motion.span variants={cardAnim} initial="hidden" animate={cardControls} className='serviceCard sm:w-[33.33%] w-full h-screen sm:p-8 p-6 flex flex-col justify-between border-b sm:border-r-[1px] border-[#f7f7f7b0]'><div className='h-full justify-between flex flex-col'>
                             <div className='z-[2] flex items-center justify-between'>
                                 <h5 className='text-2xl text-[#f7f7f7b0]'>// SERVICE 01</h5>
                                 <Laptop size={56} color="#CCFF02" weight="thin" />
@@ -221,9 +326,9 @@ function Homepage() {
                             <div className='z-[2]'>
                                 <h4 className='sm:text-2xl text-xl text-[#f7f7f7c5] text-center'>Website Design and Development: We create visually stunning and user-friendly websites that are optimized for search engines and mobile devices.</h4>
                             </div>
-                        </div>
+                        </div></motion.span>
 
-                        <div className='serviceCard sm:w-[33.33%] w-full h-screen sm:p-8 p-6 flex flex-col justify-between border-r border-[#f7f7f7b0] border-b'>
+                        <motion.span variants={cardAnim} initial="hidden" animate={cardControls} transition={{ delay: 0.15 }} className='serviceCard sm:w-[33.33%] w-full h-screen sm:p-8 p-6 flex flex-col justify-between border-b  sm:border-r-[1px] border-[#f7f7f7b0]'><div className='h-full justify-between flex flex-col'>
                             <div className='z-[2] flex items-center justify-between'>
                                 <h5 className='text-2xl text-[#f7f7f7b0]'>// SERVICE 02</h5>
                                 <ChartLineUp size={56} color="#CCFF02" weight="thin" />
@@ -235,9 +340,9 @@ function Homepage() {
                                 <h4 className='sm:text-2xl text-xl text-[#f7f7f7c5] text-center'>Strategy that is tailored to your business needs. We stay up-to-date on the latest social media trends Our goal is to help you increase brand awareness and drive engagement.</h4>
 
                             </div>
-                        </div>
+                        </div></motion.span>
 
-                        <div className='serviceCard sm:w-[33.33%] w-full h-screen sm:p-8 p-6 flex flex-col justify-between border-b border-[#f7f7f7b0]'>
+                        <motion.span variants={cardAnim} initial="hidden" animate={cardControls} transition={{ delay: 0.25 }} className='serviceCard sm:w-[33.33%] w-full h-screen sm:p-8 p-6 flex flex-col justify-between border-b  sm:border-r-[1px] border-[#f7f7f7b0]'><div className='h-full justify-between flex flex-col'>
                             <div className='z-[2] flex items-center justify-between'>
                                 <h5 className='text-2xl text-[#f7f7f7b0]'>// SERVICE 03</h5>
                                 <PenNib size={56} id='iconS' color="#CCFF02" weight="thin" />
@@ -249,7 +354,7 @@ function Homepage() {
                                 <h4 className='sm:text-2xl text-xl text-[#f7f7f7c5] text-center'>We specialize in providing professional graphic design services to enhance your brand and communicate your message effectively.</h4>
 
                             </div>
-                        </div>
+                        </div></motion.span>
                     </div>
 
 
