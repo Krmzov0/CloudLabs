@@ -18,7 +18,7 @@ function Contact() {
                         <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className='w-full'><Header /></motion.span>
                         <h1 className='text-6xl relative sm:top-10 mt-12 sm:mt-0 sm:text-8xl kayak-light text-[#f7f7f7] w-max'>Let's <br /> <span className='text-[#CCFF02] flex items-center'>Collaborate <PaperPlaneTilt className='ml-4 relative top-1 w-10 sm:w-full' size={64} color="#f7f7f7" weight="duotone" /></span></h1>
 
-                        <div className='mt-12 sm:w-full w-max sm:mx-0 bottom-3 flex flex-col-reverse sm:flex-row justify-between items-start relative'>
+                        <div className=' mt-12 sm:w-full mx-5 sm:mx-0 bottom-3 flex flex-col-reverse sm:flex-row justify-between items-start relative'>
 
                             <div className='mt-14 sm:mt-0'>
                                 <div>
@@ -52,7 +52,7 @@ function Contact() {
                                 <input className=' px-0 pb-6 bg-transparent outline-none border-b border-b-[#f7f7f7] text-[#f7f7f7] kayak-light text-2xl  inputField' type="text" placeholder='Email' required />
                                 <textarea className=' px-0 pb-6 bg-transparent outline-none border-b border-b-[#f7f7f7] text-[#f7f7f7] kayak-light text-2xl resize-none inputField' name="message" id="message" cols="30" rows="4" placeholder='Your message...'></textarea>
 
-                                <button className='p-3 rounded-full bg-[#CCFF02] w-full sm:w-44 text-xl mt-4'>Send</button>
+                                <button className='p-3 rounded-full bg-[#CCFF02] w-full sm:w-44 text-xl mt-4 transition-all active:bg-[#f7f7f740] active:translate-y-1 hover:bg-transparent hover:text-[#CCFF02] border-2 border-[#CCFF02] '>Send</button>
                             </form>
 
                         </div>

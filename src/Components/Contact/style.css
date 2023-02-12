@@ -14,6 +14,9 @@ textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     position: relative;
     top: 30vh !important;
 }
+a:hover{
+    color: #f7f7f7;
+}
 
 @media screen and (max-width: 460px) {
     #contactPage footer{

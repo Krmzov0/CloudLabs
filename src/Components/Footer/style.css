@@ -1,7 +1,7 @@
-a{
+footer a{
     transition: .2s ease;
 }
-a:hover{
+footer a:hover{
     color: #171717;
 }
 

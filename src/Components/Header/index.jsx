@@ -65,7 +65,7 @@ function Header() {
         <>
 
         
-            {toggleMenu && (<motion.div variants={MENU} initial="initial" animate="animate" className='MENU w-screen left-0 h-[100vh] top-0 z-50 bg-[#f7f7f7] bottom-0' ><div>
+            {toggleMenu && (<motion.div variants={MENU} initial="initial" animate="animate" className='MENU w-screen left-0 h-[100vh] top-0 z-50 bg-[#f7f7f7] bottom-0'><div>
 
                 <motion.div variants={navHeader} initial="initial" animate="animate" ><div className='header mx-auto flex justify-between items-center container sm:top-14 relative px-5 pt-6 sm:px-0 sm:pt-0'>
                     <motion.div transition={{
